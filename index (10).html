@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<title>Ficha de Inscripción — MOVE Dance Academy</title>
+<meta name="theme-color" content="#ef4b9b" />
+<meta name="description" content="Ficha de inscripción de MOVE Dance Academy." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="fondo-decorado">
+  <div class="burbuja burbuja-1"></div>
+  <div class="burbuja burbuja-2"></div>
+  <div class="burbuja burbuja-3"></div>
+</div>
+
+<div class="container">
+
+  <img src="logo.png" alt="MOVE Dance Academy" class="logo" />
+  <div class="title">📝 Ficha de Inscripción</div>
+  <p class="subtitulo">Completa los datos de la alumna o alumno para formalizar su inscripción en MOVE Dance Academy. 💗</p>
+
+  <section class="seccion-form">
+    <form id="formInscripcion">
+
+      <label class="campo">
+        <span>Nombre de la alumna / alumno</span>
+        <input type="text" id="inputAlumna" placeholder="Ej. María José Pérez" required autocomplete="name" />
+      </label>
+
+      <label class="campo">
+        <span>Edad</span>
+        <input type="text" id="inputEdad" placeholder="Ej. 8 años" required inputmode="numeric" />
+      </label>
+
+      <label class="campo">
+        <span>Fecha de cumpleaños</span>
+        <input type="date" id="inputCumpleanos" required />
+      </label>
+
+      <label class="campo">
+        <span>WhatsApp</span>
+        <input type="tel" id="inputWhatsapp" placeholder="Ej. 5555 5555" required autocomplete="tel" />
+      </label>
+
+      <label class="campo">
+        <span>Correo <span class="opcional">(opcional)</span></span>
+        <input type="email" id="inputCorreo" placeholder="correo@ejemplo.com" autocomplete="email" />
+      </label>
+
+      <label class="campo">
+        <span>NIT <span class="opcional">(opcional)</span></span>
+        <input type="text" id="inputNit" placeholder="Ej. 1234567-8" />
+      </label>
+
+      <hr class="separador-form" />
+
+      <label class="campo">
+        <span>Nombre de un padre / encargado</span>
+        <input type="text" id="inputNombrePadre" placeholder="Nombre completo" required autocomplete="name" />
+      </label>
+
+      <label class="campo">
+        <span>Contacto de emergencia</span>
+        <input type="text" id="inputContactoEmergencia" placeholder="Nombre de la persona" required />
+      </label>
+
+      <label class="campo">
+        <span>Número de contacto de emergencia</span>
+        <input type="tel" id="inputNumeroEmergencia" placeholder="Ej. 5555 5555" required />
+      </label>
+
+      <label class="campo">
+        <span>Condición médica o alergias <span class="opcional">(opcional)</span></span>
+        <textarea id="inputCondicionMedica" placeholder="Escribe aquí si tiene alguna condición médica o alergia que debamos saber"></textarea>
+      </label>
+
+      <hr class="separador-form" />
+
+      <label class="campo">
+        <span>Foto de la alumna / alumno <span class="opcional">(opcional)</span></span>
+        <label class="subir-archivo" id="labelSubirFoto">
+          <span id="textoSubirFoto">📷 Elegir foto</span>
+          <input type="file" id="inputFoto" accept="image/*" hidden />
+        </label>
+        <p class="nombre-archivo" id="nombreArchivoFoto"></p>
+      </label>
+
+      <hr class="separador-form" />
+
+      <!-- ============ POLÍTICAS DE INGRESO ============ -->
+      <div class="bloque-legal">
+        <p class="legal-titulo">📋 Políticas de Ingreso a la Academia</p>
+        <div class="legal-texto">
+          <ol>
+            <li>El pago mensual debe ser realizado en los primeros 15 días del mes, de lo contrario tendrá un recargo de Q25 al primer mes de mora.</li>
+            <li>No se permite la permanencia de padres de familia o acompañantes dentro del aula, en área de lockers ni en el lobby de alumnas. Podrán esperar en el área designada para padres y acompañantes.</li>
+            <li>Las clases dan inicio de manera puntual. Iniciamos con el calentamiento lo cual es fundamental para prepararse y evitar lesiones. Quedará a discreción de la maestra si la alumna puede ingresar tarde a clase para evitar que se lesione la alumna.</li>
+            <li>La realización de actividades físicas conlleva un cierto riesgo de lesiones (especialmente si no se observan las instrucciones de la maestra cuidadosamente), y Move Dance Academy no podrá hacerse responsable por las mismas.</li>
+            <li>Todas (os) las/los alumnas (os) menores de 10 años deberán permanecer con supervisión de un familiar o niñera mientras inicia su clase previo a ingresar, no nos hacemos responsables por accidentes o lesiones ocurridas antes o después de clases, especialmente si las/los alumnas (os) están sin supervisión de un familiar o niñera.</li>
+            <li>No se hará reposición de clases por ausencias del alumno o feriados.</li>
+            <li>Los meses con feriados también deberán ser cancelados en su totalidad.</li>
+            <li>De ausentarse más de un mes deberá cancelar una cuota de mantenimiento de Q275 por cada mes de ausencia.</li>
+            <li>Move Dance Academy se reserva el derecho de admisión.</li>
+          </ol>
+        </div>
+        <p class="legal-pregunta">¿Aceptas las Políticas de Ingreso a la Academia?</p>
+        <div class="radio-opciones" id="grupoPoliticas">
+          <label class="radio-opcion"><input type="radio" name="politicas" value="SI" required /> Sí, acepto</label>
+          <label class="radio-opcion"><input type="radio" name="politicas" value="NO" /> No acepto</label>
+        </div>
+      </div>
+
+      <!-- ============ CONTRATO SHOW FIN DE AÑO ============ -->
+      <div class="bloque-legal">
+        <p class="legal-titulo">🎭 Contrato Show Fin de Año</p>
+        <div class="legal-texto">
+          <ol>
+            <li>El show 2026 se llevará a cabo en la semana entre el 23 y 30 de Noviembre.</li>
+            <li>El precio por traje de show ronda entre Q650 y Q850 cada uno.</li>
+            <li>Para poder participar en el show es necesario confirmar y cancelar Q500 de anticipo a más tardar el 15 de marzo. Las alumnas que utilizarán más de un traje deberán cancelar un anticipo de Q300 por cada traje en marzo y realizar el pago del 50% de sus trajes a más tardar el 15 de junio. Para ingreso tardío (después del 30 de Mayo), la fecha máxima para confirmar y cancelar el 50% es el 15 de Agosto.</li>
+            <li>Si no se cancela como mínimo el 50% de cada traje, no se mandará a hacer el mismo.</li>
+            <li>Se cobrará una mora de Q100 por cada traje que no se cancele en las fechas indicadas. Favor comunicarnos cualquier inconveniente.</li>
+            <li>Los trajes no se entregan a menos que estén cancelados en su totalidad, todos los trajes.</li>
+            <li>Para poder participar en el show es obligatorio mantener asistencia regular de un 90% anual.</li>
+            <li>Es obligatorio asistir a los ensayos extracurriculares para participar en el show. Los ensayos inician el primer sábado del mes de agosto y finalizan al terminar el show.</li>
+            <li>Tenemos entre 1 y 3 ensayos generales en el teatro a los cuales es obligatorio asistir.</li>
+            <li>Para poder participar en el show, se debe estar con pago de mensualidad al día.</li>
+            <li>Se deben adquirir entradas para el show las cuales tendrán un precio entre Q150 y Q250 cada una. La venta de entradas se realiza en el mes de Septiembre. En la pre venta de entradas se puede adquirir únicamente filas completas, luego de la pre venta ya se pueden adquirir entradas individuales.</li>
+            <li>Para el show se utiliza un maquillaje y peinado especial el cual se estará compartiendo en el mes de Septiembre. Todas las alumnas deberán presentarse con el peinado y maquillaje indicado. No se permitirá utilizar nada distinto. Cada alumna deberá presentarse ya peinada y maquillada al teatro el día del show. Quedará a discreción de cada alumna o padre de familia conseguir el lugar en donde se estarán realizando su peinado y maquillaje.</li>
+          </ol>
+        </div>
+        <p class="legal-pregunta">¿Autorizas que participe en el Show de Fin de Año y aceptas estos requisitos?</p>
+        <div class="radio-opciones" id="grupoShow">
+          <label class="radio-opcion"><input type="radio" name="show" value="SI" required /> Sí, autorizo</label>
+          <label class="radio-opcion"><input type="radio" name="show" value="NO" /> No autorizo</label>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-reservar" id="btnInscribir">⭐ Enviar Inscripción</button>
+
+      <p class="mensaje-error" id="mensajeErrorInscripcion"></p>
+    </form>
+
+    <div class="tarjeta-exito" id="tarjetaExito" hidden>
+      <p class="exito-emoji">🎉</p>
+      <p class="exito-titulo">¡Inscripción recibida!</p>
+      <p class="exito-texto">Gracias por inscribirte en MOVE Dance Academy. Ya recibimos tus datos y pronto nos pondremos en contacto contigo. ¡Te esperamos para que vivas la experiencia MOVE! 💃🕺</p>
+      <button class="btn-secundario" id="btnNuevaInscripcion">Hacer otra inscripción</button>
+    </div>
+  </section>
+
+  <p class="footer">MOVE DANCE ACADEMY</p>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

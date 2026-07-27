@@ -1,0 +1,431 @@
+/* ===================================================
+   MOVE — FICHA DE INSCRIPCIÓN
+   Mismo lenguaje visual que el Portal de Alumnas y la
+   página de Clase de Prueba
+=================================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Poppins",sans-serif;
+}
+
+[hidden]{
+display:none !important;
+}
+
+html{
+width:100%;
+min-height:100%;
+}
+
+body{
+width:100%;
+min-height:100dvh;
+overflow-y:auto;
+overflow-x:hidden;
+display:flex;
+justify-content:center;
+align-items:flex-start;
+padding:30px 20px;
+background:linear-gradient(-45deg,#ffffff,#fff4fb,#ffe9f5,#fff6fc,#ffffff);
+background-size:400% 400%;
+animation:gradientMove 18s ease infinite;
+position:relative;
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/*=====================================
+FONDO DECORADO
+=====================================*/
+
+.fondo-decorado{
+position:fixed;
+inset:0;
+overflow:hidden;
+z-index:0;
+pointer-events:none;
+}
+
+.burbuja{
+position:absolute;
+border-radius:50%;
+background:radial-gradient(circle at 30% 30%, rgba(239,75,155,.18), rgba(239,75,155,0));
+animation:flotar 10s ease-in-out infinite;
+}
+
+.burbuja-1{ width:260px; height:260px; top:-60px; left:-60px; }
+.burbuja-2{ width:200px; height:200px; bottom:5%; right:-40px; animation-delay:2s; }
+.burbuja-3{ width:150px; height:150px; top:40%; right:10%; animation-delay:4s; }
+
+@keyframes flotar{
+0%,100%{ transform:translateY(0) scale(1); }
+50%{ transform:translateY(-20px) scale(1.05); }
+}
+
+/*=====================================
+CONTAINER
+=====================================*/
+
+.container{
+width:92%;
+max-width:640px;
+margin:20px auto;
+padding:clamp(22px,6vw,40px);
+border-radius:clamp(22px,5vw,36px);
+background:rgba(255,255,255,.6);
+backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(20px);
+box-shadow:0 20px 60px rgba(239,75,155,.18), 0 6px 15px rgba(0,0,0,.05);
+text-align:center;
+position:relative;
+z-index:20;
+}
+
+.logo{
+width:75%;
+max-width:230px;
+margin:auto;
+display:block;
+margin-bottom:6px;
+filter:drop-shadow(0 15px 25px rgba(239,75,155,.25));
+}
+
+.title{
+font-size:clamp(21px,5.5vw,30px);
+font-weight:800;
+color:#ef4b9b;
+margin-top:6px;
+margin-bottom:10px;
+}
+
+.subtitulo{
+font-size:clamp(14px,3.8vw,16px);
+font-weight:600;
+color:#777;
+margin-bottom:28px;
+line-height:1.5;
+}
+
+.seccion-titulo{
+font-size:clamp(17px,4.6vw,20px);
+font-weight:800;
+color:#ef4b9b;
+margin-bottom:6px;
+text-align:left;
+}
+
+.seccion-descripcion{
+font-size:clamp(13px,3.5vw,15px);
+font-weight:600;
+color:#888;
+text-align:left;
+margin-bottom:18px;
+}
+
+/*=====================================
+FORMULARIO
+=====================================*/
+
+.seccion-form{
+text-align:left;
+}
+
+#formInscripcion{
+display:flex;
+flex-direction:column;
+gap:14px;
+}
+
+.campo{
+display:flex;
+flex-direction:column;
+gap:6px;
+}
+
+.campo span{
+font-size:clamp(12.5px,3.3vw,14px);
+font-weight:700;
+color:#a15277;
+padding-left:2px;
+}
+
+.campo .opcional{
+font-weight:600;
+color:#c98bab;
+}
+
+.campo input,
+.campo select,
+.campo textarea{
+border:2px solid #ffd8ea;
+border-radius:14px;
+padding:clamp(12px,3.5vw,14px);
+font-size:clamp(14.5px,4vw,16px);
+font-family:inherit;
+color:#555;
+background:white;
+outline:none;
+transition:.18s;
+width:100%;
+}
+
+.campo textarea{
+resize:vertical;
+min-height:80px;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus{
+border-color:#ef4b9b;
+box-shadow:0 0 0 3px rgba(239,75,155,.15);
+}
+
+.separador-form{
+border:none;
+border-top:2px dashed #ffd8ea;
+margin:8px 0 4px;
+}
+
+/*=====================================
+SUBIR FOTO
+=====================================*/
+
+.subir-archivo{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+border:2px dashed #ffd8ea;
+border-radius:14px;
+padding:clamp(16px,4.5vw,20px);
+background:white;
+color:#a15277;
+font-weight:700;
+font-size:clamp(13px,3.5vw,15px);
+cursor:pointer;
+transition:.18s;
+text-align:center;
+}
+
+.subir-archivo:hover{
+border-color:#ef4b9b;
+}
+
+.subir-archivo.tiene-foto{
+border-style:solid;
+border-color:#ef4b9b;
+color:#ef4b9b;
+background:#fff0f6;
+}
+
+.nombre-archivo{
+font-size:clamp(12px,3.2vw,13.5px);
+font-weight:600;
+color:#ef4b9b;
+padding-left:2px;
+word-break:break-word;
+}
+
+/*=====================================
+BLOQUES LEGALES
+=====================================*/
+
+.bloque-legal{
+border:2px solid #ffd8ea;
+border-radius:18px;
+padding:clamp(16px,4vw,20px);
+background:white;
+}
+
+.legal-titulo{
+font-size:clamp(15px,4vw,17px);
+font-weight:800;
+color:#ef4b9b;
+margin-bottom:10px;
+}
+
+.legal-texto{
+max-height:220px;
+overflow-y:auto;
+font-size:clamp(12.5px,3.3vw,14px);
+color:#666;
+line-height:1.6;
+padding-right:6px;
+margin-bottom:14px;
+}
+
+.legal-texto ol{
+padding-left:20px;
+display:flex;
+flex-direction:column;
+gap:8px;
+}
+
+.legal-texto::-webkit-scrollbar{
+width:6px;
+}
+
+.legal-texto::-webkit-scrollbar-thumb{
+background:#ffd8ea;
+border-radius:10px;
+}
+
+.legal-pregunta{
+font-size:clamp(13px,3.5vw,15px);
+font-weight:700;
+color:#a15277;
+margin-bottom:10px;
+}
+
+.radio-opciones{
+display:flex;
+gap:10px;
+}
+
+.radio-opcion{
+flex:1;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+border:2px solid #ffd8ea;
+border-radius:14px;
+padding:clamp(10px,3vw,13px);
+font-size:clamp(13px,3.5vw,15px);
+font-weight:700;
+color:#a15277;
+cursor:pointer;
+transition:.18s;
+background:white;
+}
+
+.radio-opcion input{
+accent-color:#ef4b9b;
+width:16px;
+height:16px;
+}
+
+.radio-opcion.seleccionada{
+border-color:#ef4b9b;
+background:#fff0f6;
+color:#ef4b9b;
+box-shadow:0 6px 14px rgba(239,75,155,.18);
+}
+
+/*=====================================
+BOTÓN Y MENSAJES
+=====================================*/
+
+.btn-reservar{
+border:none;
+border-radius:18px;
+padding:clamp(15px,4.5vw,19px);
+font-size:clamp(16px,4.5vw,19px);
+font-weight:800;
+color:white;
+cursor:pointer;
+margin-top:6px;
+background:linear-gradient(180deg,#ff72b7,#ef4b9b);
+box-shadow:0 10px 24px rgba(239,75,155,.32);
+transition:.15s;
+}
+
+.btn-reservar:active:not(:disabled){ transform:scale(.97); }
+
+.btn-reservar:disabled{
+opacity:.55;
+cursor:not-allowed;
+box-shadow:none;
+}
+
+.mensaje-error{
+min-height:22px;
+color:#e0245e;
+font-weight:700;
+font-size:clamp(13px,3.5vw,15px);
+text-align:center;
+margin-top:4px;
+}
+
+/*=====================================
+TARJETA DE ÉXITO
+=====================================*/
+
+.tarjeta-exito{
+text-align:center;
+padding:clamp(24px,6vw,34px) clamp(16px,5vw,26px);
+border-radius:22px;
+background:linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,240,248,.9));
+box-shadow:0 14px 32px rgba(239,75,155,.20);
+animation:apareceExito .4s ease;
+}
+
+@keyframes apareceExito{
+from{ opacity:0; transform:translateY(10px) scale(.97); }
+to{ opacity:1; transform:translateY(0) scale(1); }
+}
+
+.exito-emoji{
+font-size:52px;
+margin-bottom:6px;
+}
+
+.exito-titulo{
+font-size:clamp(20px,5.5vw,26px);
+font-weight:800;
+color:#ef4b9b;
+margin-bottom:10px;
+}
+
+.exito-texto{
+font-size:clamp(14px,3.8vw,16px);
+font-weight:600;
+color:#777;
+line-height:1.55;
+margin-bottom:22px;
+}
+
+.btn-secundario{
+border:2px solid #ef4b9b;
+background:white;
+color:#ef4b9b;
+border-radius:16px;
+padding:clamp(11px,3.5vw,14px) clamp(20px,5vw,28px);
+font-size:clamp(14px,3.8vw,16px);
+font-weight:700;
+font-family:inherit;
+cursor:pointer;
+transition:.18s;
+}
+
+.btn-secundario:active{ transform:scale(.97); }
+
+.footer{
+margin-top:30px;
+font-size:12px;
+font-weight:700;
+letter-spacing:1.5px;
+color:#c98bab;
+text-align:center;
+}
+
+/*=====================================
+RESPONSIVE
+=====================================*/
+
+@media(max-width:360px){
+.container{ width:96%; margin:10px auto; }
+.radio-opciones{ flex-direction:column; }
+}
+
+@media(min-width:900px){
+.container{ max-width:700px; }
+}
