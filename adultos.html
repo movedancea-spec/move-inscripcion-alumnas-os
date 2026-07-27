@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<title>Ficha de Inscripción — Adultos — MOVE Dance Academy</title>
+<meta name="theme-color" content="#ef4b9b" />
+<meta name="description" content="Ficha de inscripción para adultos de MOVE Dance Academy." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="fondo-decorado">
+  <div class="burbuja burbuja-1"></div>
+  <div class="burbuja burbuja-2"></div>
+  <div class="burbuja burbuja-3"></div>
+</div>
+
+<div class="container">
+
+  <img src="logo.png" alt="MOVE Dance Academy" class="logo" />
+  <div class="title">📝 Ficha de Inscripción — Adultos</div>
+  <p class="subtitulo">Completa tus datos para formalizar tu inscripción en MOVE Dance Academy. 💗</p>
+  <p class="enlace-otra-ficha">¿Vas a inscribir a una niña, niño o adolescente? <a href="index.html">Llena la ficha de menores aquí</a>.</p>
+
+  <section class="seccion-form">
+    <form id="formInscripcion">
+
+      <label class="campo">
+        <span>Nombre completo</span>
+        <input type="text" id="inputAlumna" placeholder="Ej. María José Pérez" required autocomplete="name" />
+      </label>
+
+      <label class="campo">
+        <span>Edad</span>
+        <input type="text" id="inputEdad" placeholder="Ej. 28 años" required inputmode="numeric" />
+      </label>
+
+      <label class="campo">
+        <span>Fecha de cumpleaños</span>
+        <input type="date" id="inputCumpleanos" required />
+      </label>
+
+      <label class="campo">
+        <span>WhatsApp</span>
+        <input type="tel" id="inputWhatsapp" placeholder="Ej. 5555 5555" required autocomplete="tel" />
+      </label>
+
+      <label class="campo">
+        <span>Correo <span class="opcional">(opcional)</span></span>
+        <input type="email" id="inputCorreo" placeholder="correo@ejemplo.com" autocomplete="email" />
+      </label>
+
+      <label class="campo">
+        <span>NIT <span class="opcional">(opcional)</span></span>
+        <input type="text" id="inputNit" placeholder="Ej. 1234567-8" />
+      </label>
+
+      <hr class="separador-form" />
+
+      <label class="campo">
+        <span>Contacto de emergencia</span>
+        <input type="text" id="inputContactoEmergencia" placeholder="Nombre de la persona" required />
+      </label>
+
+      <label class="campo">
+        <span>Número de contacto de emergencia</span>
+        <input type="tel" id="inputNumeroEmergencia" placeholder="Ej. 5555 5555" required />
+      </label>
+
+      <label class="campo">
+        <span>Condición médica o alergias <span class="opcional">(opcional)</span></span>
+        <textarea id="inputCondicionMedica" placeholder="Escribe aquí si tienes alguna condición médica o alergia que debamos saber"></textarea>
+      </label>
+
+      <hr class="separador-form" />
+
+      <!-- ============ POLÍTICAS DE INGRESO ============ -->
+      <div class="bloque-legal">
+        <p class="legal-titulo">📋 Políticas de Ingreso a la Academia</p>
+        <div class="legal-texto">
+          <ol>
+            <li>El pago mensual debe ser realizado en los primeros 15 días del mes, de lo contrario tendrá un recargo de Q25 al primer mes de mora.</li>
+            <li>La realización de actividades físicas conlleva un cierto riesgo de lesiones (especialmente si no se observan las instrucciones de la maestra cuidadosamente), y Move Dance Academy no podrá hacerse responsable por las mismas.</li>
+            <li>No se hará reposición de clases por ausencias del alumno o feriados.</li>
+            <li>Los meses con feriados también deberán ser cancelados en su totalidad.</li>
+            <li>Move Dance Academy se reserva el derecho de admisión.</li>
+          </ol>
+        </div>
+        <p class="legal-pregunta">¿Aceptas las Políticas de Ingreso a la Academia?</p>
+        <div class="radio-opciones" id="grupoPoliticas">
+          <label class="radio-opcion"><input type="radio" name="politicas" value="SI" required /> Sí, acepto</label>
+          <label class="radio-opcion"><input type="radio" name="politicas" value="NO" /> No acepto</label>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-reservar" id="btnInscribir">⭐ Enviar Inscripción</button>
+
+      <p class="mensaje-error" id="mensajeErrorInscripcion"></p>
+    </form>
+
+    <div class="tarjeta-exito" id="tarjetaExito" hidden>
+      <p class="exito-emoji">🎉</p>
+      <p class="exito-titulo">¡Inscripción recibida!</p>
+      <p class="exito-texto">Gracias por inscribirte en MOVE Dance Academy. Ya recibimos tus datos y pronto nos pondremos en contacto contigo. ¡Te esperamos para que vivas la experiencia MOVE! 💃🕺</p>
+      <button class="btn-secundario" id="btnNuevaInscripcion">Hacer otra inscripción</button>
+    </div>
+  </section>
+
+  <p class="footer">MOVE DANCE ACADEMY</p>
+
+</div>
+
+<script src="script-adultos.js"></script>
+</body>
+</html>
