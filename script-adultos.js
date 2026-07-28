@@ -13,6 +13,43 @@ function mostrarErrorInscripcion(msg) {
   el("mensajeErrorInscripcion").textContent = msg || "";
 }
 
+// ---------- fecha de cumpleaños (día / mes / año por separado) ----------
+// Antes era un solo <input type="date">, pero en el teclado del celular
+// ese picker obliga a deslizar año por año hasta encontrar el correcto,
+// lo cual es muy lento. Con tres <select> (día, mes, año) se puede tocar
+// el año directamente y elegirlo de la lista, sin deslizar.
+
+(function poblarSelectAnio() {
+  const select = el("selectAnioCumple");
+  if (!select) return;
+  const anioActual = new Date().getFullYear();
+  for (let anio = anioActual; anio >= anioActual - 100; anio--) {
+    const opcion = document.createElement("option");
+    opcion.value = String(anio);
+    opcion.textContent = String(anio);
+    select.appendChild(opcion);
+  }
+})();
+
+// Junta día + mes + año en "AAAA-MM-DD" (el formato que espera el Worker).
+// Devuelve "" si falta elegir algo, o null si la combinación no es una
+// fecha real (ej. 30 de febrero).
+function leerCumpleanos() {
+  const dia = el("selectDiaCumple").value;
+  const mes = el("selectMesCumple").value;
+  const anio = el("selectAnioCumple").value;
+  if (!dia || !mes || !anio) return "";
+
+  const fecha = new Date(Number(anio), Number(mes) - 1, Number(dia));
+  const esValida =
+    fecha.getFullYear() === Number(anio) &&
+    fecha.getMonth() === Number(mes) - 1 &&
+    fecha.getDate() === Number(dia);
+  if (!esValida) return null;
+
+  return `${anio}-${mes}-${dia}`;
+}
+
 // ---------- resaltar la opción elegida en los radios Sí/No ----------
 
 function activarResaltadoRadios(grupoId) {
@@ -37,7 +74,7 @@ el("formInscripcion").addEventListener("submit", async (e) => {
 
   const alumna = el("inputAlumna").value.trim();
   const edad = el("inputEdad").value.trim();
-  const cumpleanos = el("inputCumpleanos").value;
+  const cumpleanos = leerCumpleanos();
   const whatsapp = el("inputWhatsapp").value.trim();
   const correo = el("inputCorreo").value.trim();
   const nit = el("inputNit").value.trim();
@@ -55,7 +92,11 @@ el("formInscripcion").addEventListener("submit", async (e) => {
     !contactoEmergencia ||
     !numeroEmergencia
   ) {
-    mostrarErrorInscripcion("Completa todos los campos obligatorios.");
+    mostrarErrorInscripcion(
+      cumpleanos === null
+        ? "Esa fecha de cumpleaños no existe — revisa el día y el mes."
+        : "Completa todos los campos obligatorios."
+    );
     return;
   }
 

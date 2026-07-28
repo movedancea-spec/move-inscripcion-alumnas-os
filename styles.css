@@ -202,6 +202,18 @@ border-color:#ef4b9b;
 box-shadow:0 0 0 3px rgba(239,75,155,.15);
 }
 
+.fila-fecha{
+display:flex;
+gap:8px;
+}
+
+.fila-fecha select{
+flex:1;
+min-width:0;
+padding-left:clamp(8px,2.5vw,14px);
+padding-right:clamp(8px,2.5vw,14px);
+}
+
 .separador-form{
 border:none;
 border-top:2px dashed #ffd8ea;
